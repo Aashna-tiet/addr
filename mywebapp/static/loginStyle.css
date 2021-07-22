@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(255, 235, 205);
+}
+#entry{
+    background-color: white;
+    color: black;
+    width: 200 px; 
+    height: 100 px;
+    margin: 400 px;
+    border: 10 px;
+    box-sizing: border-box;
+} 

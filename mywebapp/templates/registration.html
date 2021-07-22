@@ -1,0 +1,27 @@
+<html>
+    <title>
+        Registration Page
+    </title>
+    <link link href="{{ url_for('static', filename='/loginStyle.css') }}" rel="stylesheet">
+
+    <body>
+        <h1>{{error}}</h1>
+        <form class = 'formStyle'  action="{{url_for('doRegistration')}}" method = "POST">
+            <label for="name">Enter your name:</label><br>
+            <input type="text" id="entry" name="Name"><br>
+            <label for="age">Age :</label><br>
+            <input type="text" id="entry" name="age"><br>
+            <label for="mobile">Mobile Number :</label><br>
+            <input type="text" id="entry" name="mobile"><br>
+            <label for="city">City :</label><br>
+            <input type="text" id="entry" name="city"><br>
+            <label for="username">username :</label><br>
+            <input type="text" id="entry" name="username"><br>
+            <label for="password">Password :</label><br>
+            <input type="password" id="entry" name="password"><br>
+            <br>
+                        
+            <button>Submit</button>
+        </form>
+    </body>
+</html>
