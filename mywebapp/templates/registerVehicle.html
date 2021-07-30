@@ -1,0 +1,23 @@
+<html>
+<title>
+    Vehicle Registration Page
+</title>
+<link link href="{{ url_for('static', filename='/loginStyle.css') }}" rel="stylesheet">
+
+<body>
+    <h1>{{error}}</h1>
+    <form class='formStyle' action="{{url_for('doVehicleRegistration')}}" method="POST">
+        <h2>Enter Details of the Vehicle Here!!</h2>
+        <label for="vehicleNumber">Enter Vehicle Number:</label><br>
+        <input type="text" id="entry" name="vehicleNumber"><br>
+        <label for="chassisNumber">Chassis Number :</label><br>
+        <input type="text" id="entry" name="chassisNumber"><br>
+        <label for="engineNumber">Engine Number :</label><br>
+        <input type="text" id="entry" name="engineNumber"><br>
+        <label for='policeStation'> Police Station: </label><br>
+        <input type="text" id="entry" name="policeStation"><br>
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>

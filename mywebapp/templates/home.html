@@ -1,9 +1,19 @@
 <html>
+
 <head>
     <title>Home page</title>
 </head>
+<link link href="{{ url_for('static', filename='/styles.css') }}" rel="stylesheet">
+
 <body>
-    <h1>Hello {{user}} you are logged in!!</h1> 
-    <a href="logout">Logout</a>
+    <h5>Hello {{user}} you are logged in!!</h5>
+    <h4>{{message}}</h4>
+    <a href="logout" class='button'>Logout</a>
+    <h1>What do you want to do Today?</h1>
+    <a href="/registerVehicle" class='button'>Register a Vehicle</a><br>
+    <a href='/retreiveData' class='button'>View Newly Regisrtered Vehicles</a><br>
+    <a href='/retreiveData' class='button'>Search for a Vehicle</a><br>
+
 </body>
+
 </html>

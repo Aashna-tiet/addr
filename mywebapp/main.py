@@ -16,6 +16,8 @@ def init_routes(app):
     app.add_url_rule("/login", view_func=V.login, methods=["POST", "GET"])
     app.add_url_rule("/registration", view_func=V.doRegistration,
                      methods=["POST", "GET"])
+    app.add_url_rule("/registerVehicle",
+                     view_func=V.doVehicleRegistration, methods=["POST", "GET"])
     app.add_url_rule("/home/<user>", view_func=V.home, methods=["POST", "GET"])
     app.add_url_rule("/logout", view_func=V.logout, methods=["GET"])
     app.add_url_rule("/ajaxtest", view_func=V.myajax, methods=["GET"])

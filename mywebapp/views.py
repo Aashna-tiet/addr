@@ -2,7 +2,8 @@ from os import sendfile
 from flask import request
 from flask import session
 from flask import render_template
-from loginData import *
+from officialsData import *
+from vehicleData import *
 from flask import jsonify
 
 
@@ -28,13 +29,16 @@ def valid_login(usernameProvided, passw):
 def login():
     error = ""
     if request.method == 'POST':
-        if valid_login(request.form['username'],
-                       request.form['password']):
-            session['username'] = request.form['username']
-            user_name = request.form['username']
-            return render_template('home.html', user=user_name)
+        if (request.form['username'] and request.form['password']):
+            if valid_login(request.form['username'],
+                           request.form['password']):
+                session['username'] = request.form['username']
+                user_name = request.form['username']
+                return render_template('home.html', user=user_name, message="`")
+            else:
+                error = "Oops!there might be a mistake in username or password that you entered!"
         else:
-            error = 'Oops! Invalid username/password'
+            error = 'please enter the details!'
     # the code below is executed if the request method
     # was GET or the credentials were invalid
     return render_template('loginPage.html', error=error)
@@ -57,11 +61,11 @@ def entry():
 
 
 def doRegistration():
-    error = None
+    error = ""
     if request.method == 'POST':
-        if validRegistration(request.form['Name'], request.form['age'], request.form['mobile'], request.form['city'], request.form['username'], request.form['password']):
-            enterData(request.form['Name'], request.form['age'], request.form['mobile'],
-                      request.form['city'], request.form['username'], request.form['password'])
+        if validRegistration(request.form['Name'], request.form['mobile'], request.form['city'], request.form['policeStation'], request.form['rank'], request.form['username'], request.form['password']):
+            enterData(request.form['Name'], request.form['mobile'], request.form['city'],
+                      request.form['policeStation'], request.form['rank'], request.form['username'], request.form['password'])
             message = "registration complete....please log in"
             return render_template('loginPage.html', error=message)
         else:
@@ -69,9 +73,31 @@ def doRegistration():
     return render_template('registration.html', error=error)
 
 
-def validRegistration(name, age, mobile, city, username, password):
-    return name and age and mobile and city and username and password
+def validRegistration(name,  mobile, city, policeStation, Rank, username, password):
+    return name and mobile and city and policeStation and Rank and username and password
 
 
-def enterData(name, age, mobile, city, username, password):
-    saveData(name, age, mobile, city, username, password)
+def validVehicleRegistration(name, vehicleNumber, chassisNumber, engineNumber):
+    return name and vehicleNumber and chassisNumber and engineNumber
+
+
+def doVehicleRegistration():
+    error = ""
+    if request.method == 'POST':
+        print(session['username'])
+        if (validVehicleRegistration(session['username'], request.form['vehicleNumber'], request.form['chassisNumber'], request.form['engineNumber'])):
+            enterVehicleData(session['username'], request.form['vehicleNumber'],
+                             request.form['chassisNumber'], request.form['engineNumber'])
+            error = "Done!"
+            return render_template('home.html', user=session['username'], message="Done Vehicle registration!")
+        else:
+            error = "Sorry...Incomplete Fields!"
+    return render_template('registerVehicle.html', error=error)
+
+
+def enterVehicleData(name, vehicleNumber, chassisNumber, engineNumber):
+    saveVehicleData(name, vehicleNumber, chassisNumber, engineNumber)
+
+
+def enterData(name,  mobile, city, policeStation, Rank, username, password):
+    saveData(name,  mobile, city, policeStation, Rank, username, password)
