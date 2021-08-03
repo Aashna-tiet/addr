@@ -1,0 +1,21 @@
+<html>
+<title>
+    Vehicle Details
+</title>
+
+<body>
+    <h1>Vehicle you searched for : {{vehicle.vehicleNumber}}</h1>
+    <h4>{{error}}</h4>
+    <ol>
+        {% for l in location %}
+        <ul>location : {{l.policeStation}}</ul>
+        <ul>date : {{l.date}}</ul>
+        <ul> by: {{l.username}}</ul>
+        <br>
+        {% else %}
+        <li><em>no vehicle found</em></li>
+        {% endfor %}
+    </ol>
+</body>
+
+</html>

@@ -1,7 +1,21 @@
 <html>
-    <body>
-        <h1>
-            Hi Mr. {{id}}
-        </h1>
-    </body>
+<title>
+    Vehicle Details
+</title>
+
+<body>
+    <h1>Vehicle Details!!</h1>
+    <h4>{{error}}</h4>
+    <ol>
+        {% for v in vehicle %}
+        <dd>Vehicle Number : {{v.vehicleNumber}}</dd>
+        <dt>Chassis Number : {{v.chassisNumber}} </dt>
+        <dt>Engine Number : {{v.engineNumber}}</dt><br>
+
+        {% else %}
+        <li><em>no vehicle found</em></li>
+        {% endfor %}
+    </ol>
+</body>
+
 </html>

@@ -1,0 +1,17 @@
+<html>
+
+<head>
+    <title>
+        Search for a vehicle
+    </title>
+</head>
+
+<body>
+    <form class='formStyle' action="{{url_for('searchVehicleDetails')}}" method="POST">
+        <label for="vehicleNumber">Enter Vehicle Number:</label><br>
+        <input type="text" id="entry" name="vehicleNumber"><br>
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>

@@ -18,11 +18,18 @@ def init_routes(app):
                      methods=["POST", "GET"])
     app.add_url_rule("/registerVehicle",
                      view_func=V.doVehicleRegistration, methods=["POST", "GET"])
-    app.add_url_rule("/home/<user>", view_func=V.home, methods=["POST", "GET"])
+    app.add_url_rule("/view", view_func=V.vehicleData,
+                     methods=["POST", "GET"])
+    app.add_url_rule("/locationUpdate",
+                     view_func=V.trackLocations, methods=["POST", "GET"])
+    app.add_url_rule(
+        "/retreiveData", view_func=V.searchVehicleDetails, methods=["POST", "GET"])
     app.add_url_rule("/logout", view_func=V.logout, methods=["GET"])
-    app.add_url_rule("/ajaxtest", view_func=V.myajax, methods=["GET"])
-    app.add_url_rule("/ajax/<string:msg>/<string:res_type>",
-                     view_func=V.test_ajax, methods=["GET"])
+
+    # app.add_url_rule("/home/<user>", view_func=V.home, methods=["POST", "GET"])
+    # app.add_url_rule("/ajaxtest", view_func=V.myajax, methods=["GET"])
+    # app.add_url_rule("/ajax/<string:msg>/<string:res_type>",
+    #                  view_func=V.test_ajax, methods=["GET"])
 
 
 if __name__ == "__main__":

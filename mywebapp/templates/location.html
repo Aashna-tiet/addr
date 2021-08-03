@@ -1,0 +1,18 @@
+<html>
+
+<title>
+    Location Update
+</title>
+<link link href="{{ url_for('static', filename='/loginStyle.css') }}" rel="stylesheet">
+
+<body>
+    <form class='formStyle' action="{{url_for('trackLocations')}}" method="POST">
+        <label for="vehicleNumber">Enter Vehicle Number :</label><br>
+        <input type="text" id="entry" name="vehicleNumber"><br>
+        <label for="PoliceStation">Enter the current PoliceStation it is in:</label><br>
+        <input type="text" id="entry" name="policeStation"><br>
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>
