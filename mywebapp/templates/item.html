@@ -6,16 +6,13 @@
 <body>
     <h1>Vehicle Details!!</h1>
     <h4>{{error}}</h4>
-    <ol>
+    <ul>
         {% for v in vehicle %}
-        <dd>Vehicle Number : {{v.vehicleNumber}}</dd>
-        <dt>Chassis Number : {{v.chassisNumber}} </dt>
-        <dt>Engine Number : {{v.engineNumber}}</dt><br>
-
+        <ol>Vehicle Number : {{v.vehicleNumber}}</ol>
         {% else %}
         <li><em>no vehicle found</em></li>
         {% endfor %}
-    </ol>
+    </ul>
 </body>
 
 </html>

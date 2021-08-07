@@ -2,6 +2,8 @@ from flask.templating import render_template
 from peewee import *
 import datetime
 
+from werkzeug.datastructures import FileStorage
+
 db = SqliteDatabase('vehicleDatabase.db')
 
 
@@ -66,11 +68,16 @@ def retreiveData():
     db.connect()
     array = []
     try:
-        for vehicle in Vehicle.select():
-            array.append(vehicle)
+        query = Vehicle.select()
+        if(query):
+            for vehicle in Vehicle.select():
+                array.append(vehicle)
             # print(vehicle.vehicleNumber)
-        print(array)
-        return array
+            print(array)
+            return array
+        else:
+            errors = "No Vehicle found Sorry!"
+            return render_template("item.html", error=errors)
     except:
         print("Error occured")
         return render_template("item.html", error="Error Occured!")
@@ -84,7 +91,10 @@ def search(received_vehicleNumber):
             Vehicle.vehicleNumber == received_vehicleNumber).get()
         print(x)
         db.close()
-        return x
+        if(x):
+            return x
+        else:
+            return ""
     except:
         db.close()
         return ""

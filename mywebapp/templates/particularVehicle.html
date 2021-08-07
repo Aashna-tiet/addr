@@ -6,6 +6,8 @@
 <body>
     <h1>Vehicle you searched for : {{vehicle.vehicleNumber}}</h1>
     <h4>{{error}}</h4>
+    <h5>Engine Number = {{vehicle.engineNumber}}</h5>
+    <h5>Chassis Number = {{vehicle.chassisNumber}}</h5><br>
     <ol>
         {% for l in location %}
         <ul>location : {{l.policeStation}}</ul>
