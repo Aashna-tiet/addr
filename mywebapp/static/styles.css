@@ -2,8 +2,10 @@ h1{
     color:black
 }
 body{
-    background-color: rgb(255, 235, 205);
+    background-image: "background.jpeg";
 }
+
+
 .btn{
     background-color: chocolate;
     color: antiquewhite;
