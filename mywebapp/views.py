@@ -87,8 +87,11 @@ def doRegistration():
 # for validating registrations
 
 
-def validRegistration(name,  mobile, city, policeStation, Rank, username, password):
-    return name and mobile and city and policeStation and Rank and username and password
+def validRegistration(name,  mobile, city, policeStation, rank, username, password):
+    if(name and mobile and city and policeStation and rank and username and password):
+        return True
+    else:
+        return False
 
 # for validation Vehicle registration
 

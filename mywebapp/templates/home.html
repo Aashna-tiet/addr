@@ -3,17 +3,34 @@
 <head>
     <title>Home page</title>
 </head>
-<link link href="{{ url_for('static', filename='/styles.css') }}" rel="stylesheet">
+
+<head>
+    <link link href="{{ url_for('static', filename='/styles.css') }}" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
 
 <body>
-    <h5>Hello {{user}} you are logged in!!</h5>
-    <h4>{{message}}</h4>
-    <a href="logout" class='button'>Logout</a>
-    <h1>What do you want to do Today?</h1>
-    <a href="/registerVehicle" class='button'>Register a New Vehicle</a><br>
-    <a href='/view' class='button'>View All Regisrtered Vehicles</a><br>
-    <a href='/locationUpdate' class='button'>Updation of Vehicle Location</a><br>
-    <a href='/retreiveData' class='button'>Search for a Vehicle</a><br>
+    <div class="bg-image" style="background : url('bg.jpg') ; height: 100vh;">
+        <h5 class="display-6 text-center">Logged in as {{user}} !!</h5>
+        <h4 class="text-danger">{{message}}</h4>
+
+        <div class="btn"> <a href="logout" class="btn btn-secondary">Logout</a> </div>
+
+        <h1>What do you want to do Today?</h1>
+        <a href="/registerVehicle" class='button'>Register a New Vehicle</a><br>
+        <a href='/view' class='button'>View All Regisrtered Vehicles</a><br>
+        <a href='/locationUpdate' class='button'>Updation of Vehicle Location</a><br>
+        <a href='/retreiveData' class='button'>Search for a Vehicle</a><br>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
 
 </body>
 
