@@ -73,16 +73,16 @@ def entry():
 
 
 def doRegistration():
-    error = ""
+    errors = ""
     if request.method == 'POST':
         if validRegistration(request.form['Name'], request.form['mobile'], request.form['city'], request.form['policeStation'], request.form['rank'], request.form['username'], request.form['password']):
             enterData(request.form['Name'], request.form['mobile'], request.form['city'],
                       request.form['policeStation'], request.form['rank'], request.form['username'], request.form['password'])
             message = "registration complete....please log in"
             return render_template('loginPage.html', error=message)
-        else:
-            error = "Please fill all the information required!"
-    return render_template('registration.html', error=error)
+        errors = "Please fill all the information required!"
+        return render_template('registration.html', error=errors)
+    return render_template('registration.html', error="")
 
 # for validating registrations
 
