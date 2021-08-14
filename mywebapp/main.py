@@ -1,9 +1,11 @@
 from flask import Flask
+
 import views as V
 
 
 def create_app():
     app = Flask(__name__, static_url_path='')
+
     # app.config.from_pyfile(config_filename)
     # Set the secret key to some random bytes. Keep this really secret!
     app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'

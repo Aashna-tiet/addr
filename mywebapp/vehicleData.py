@@ -1,3 +1,4 @@
+from enum import unique
 from flask.templating import render_template
 from peewee import *
 import datetime
@@ -22,9 +23,9 @@ class BaseModel(Model):
 
 class Vehicle(BaseModel):
     username = CharField()
-    vehicleNumber = TextField()
-    chassisNumber = TextField()
-    engineNumber = TextField()
+    vehicleNumber = TextField(PrimaryKeyField)
+    chassisNumber = TextField(unique)
+    engineNumber = TextField(unique)
 
     class Meta:
         pass
