@@ -1,27 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>
-        Vehicle Details
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- <meta name="description" content="" />
+    <meta name="author" content="" /> -->
+    <title>Particular Vehicle</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+        rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link link href="{{ url_for('static', filename='/styles.css') }}" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
+<body id="page-top">
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class=" display-4 container text-center text-light">Vehicle you searched for :
+                        {{vehicle.vehicleNumber}}</h1>
+                    <h4 class="text-danger text-center">{{error}}</h4>
+                    <h5 class="text-center text-white">Engine Number = {{vehicle.engineNumber}}</h5>
+                    <h5 class="text-center text-light">Chassis Number = {{vehicle.chassisNumber}}</h5><br>
 
-<body>
-    <div class="bg-image" style="
-    background-image: url('bg.jpg'); height:100vh
-    ">
-        <h1 class=" display-4 container txt-center">Vehicle you searched for : {{vehicle.vehicleNumber}}</h1>
-        <h4 class="text-danger text-center">{{error}}</h4>
-        <h5 class="text-center">Engine Number = {{vehicle.engineNumber}}</h5>
-        <h5 class="text-center">Chassis Number = {{vehicle.chassisNumber}}</h5><br>
-
-
-        <!-- <ol>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <!-- <ol>
     {% for l in location %}
     <ul>location : {{l.policeStation}}</ul>
     <ul>date : {{l.date}}</ul>
@@ -32,34 +49,35 @@
     {% endfor %}
     </ol> -->
 
-        <table class="table table-bordered table-dark table-striped container">
-            <thead>
-                <tr>
-                    <th scope="rowgroup">....</th>
-                    <th scope="colgroup">Locations</th>
-                    <th scope="colgroup">Date</th>
-                    <th scope="colgroup">Username</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for l in location %}
-                <tr class="p-5">
-                    <th scope="row">#</th>
-                    <td scope="col"> {{l.policeStation}} </td>
-                    <td scope="col"> {{l.date}} </td>
-                    <td scope="col"> {{l.username}} </td>
-                </tr>
-                {% else %}
-                <li><em>no vehicle found</em></li>
-                {% endfor %}
-            </tbody>
-        </table>
+                    <table class="table table-bordered table-dark table-striped container">
+                        <thead>
+                            <tr>
+                                <th scope="rowgroup">....</th>
+                                <th scope="colgroup">Locations</th>
+                                <th scope="colgroup">Date</th>
+                                <th scope="colgroup">Username</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for l in location %}
+                            <tr class="p-5">
+                                <th scope="row">#</th>
+                                <td scope="col"> {{l.policeStation}} </td>
+                                <td scope="col"> {{l.date}} </td>
+                                <td scope="col"> {{l.username}} </td>
+                            </tr>
+                            {% else %}
+                            <li><em>no vehicle found</em></li>
+                            {% endfor %}
+                        </tbody>
+                    </table>
 
-    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
