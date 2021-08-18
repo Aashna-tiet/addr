@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>
+        Vehicle Registration Page
+    </title>
+    <link link href="{{ url_for('static', filename='/loginStyle.css') }}" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<div class="background-image" style="background-image: url('background.jpeg') ; height:100vh">
+
+    <h2 class="text-center display-1">Register Here!</h2>
+    <h5 class="text-danger text-center  ">{{error}}</h5>
+
+    <form class='formStyle' action="{{url_for('doVehicleRegistration')}}" method="POST">
+        <h3 class="text-center text-white bg-dark border-5 rounded-pill border">Enter Details of the Vehicle Here!!</h3>
+        <label for="vehicleNumber">Enter Vehicle Number:</label><br>
+        <input type="text" id="entry" name="vehicleNumber"><br>
+        <label for="chassisNumber">Chassis Number :</label><br>
+        <input type="text" id="entry" name="chassisNumber"><br>
+        <label for="engineNumber">Engine Number :</label><br>
+        <input type="text" id="entry" name="engineNumber"><br>
+        <button>Submit</button>
+    </form>
+</div>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
